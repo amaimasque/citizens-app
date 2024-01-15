@@ -1,22 +1,24 @@
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
-import {} from "@/"
+import MenuItem from "@mui/material/MenuItem";
+import { SelectInputProps } from "../../types/components";
+import "./SelectInput.css"
 
-const SelectInput = ({}: SelectedInputProps) => {
+const SelectInput = ({selected, onChange, data, id, label}: SelectInputProps) => {
   return (
     <FormControl fullWidth>
-      <InputLabel id="demo-simple-select-label">Age</InputLabel>
+      <InputLabel id={`${id}-label`}>{label}</InputLabel>
       <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        value={age}
-        label="Age"
-        onChange={handleChange}
+        labelId={`${id}-label`}
+        id={id}
+        value={selected}
+        label={label}
+        onChange={(e)  => onChange(e.target.value)}
       >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {data.map((current, index) => (
+          <MenuItem className="item-input" key={`${index}-${current.value}`} value={current.value}>{current.display}</MenuItem>
+        ))}
       </Select>
     </FormControl>
   )
