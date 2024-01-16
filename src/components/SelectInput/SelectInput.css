@@ -1,3 +1,8 @@
 .item-input {
+  display: inline-block;
+  text-transform: lowercase!important;
+}
+
+.item-input::first-letter {
   text-transform: capitalize!important;
 }

@@ -16,8 +16,8 @@ const SelectInput = ({selected, onChange, data, id, label}: SelectInputProps) =>
         label={label}
         onChange={(e)  => onChange(e.target.value)}
       >
-        {data.map((current, index) => (
-          <MenuItem className="item-input" key={`${index}-${current.value}`} value={current.value}>{current.display}</MenuItem>
+        {data?.map((current, index) => (
+          <MenuItem key={`${index}-${current.value}`} value={current.value}>{current.display}</MenuItem>
         ))}
       </Select>
     </FormControl>

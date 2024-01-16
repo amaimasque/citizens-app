@@ -18,3 +18,8 @@ export type CityCardProps = {
 export type CityListProps = {
   data: CityCardProps[]
 }
+
+export type LocationFormProps = {
+  countriesData: SelectInputData[]
+  statesData: SelectInputData[]
+}
